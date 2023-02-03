@@ -13,11 +13,11 @@ jobs:
 
       - name: Install requirements
         run: pip install -r requirements.txt
-        with:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Test
         run: python manage.py test
+        with:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Lint
         run: flake8
