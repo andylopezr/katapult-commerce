@@ -30,7 +30,7 @@ class Error(Schema):
     message: str
 
 
-@router.post('', auth=None, response={200: Success, 409: Error})
+@router.post('', response={200: Success, 409: Error}, auth=None)
 def create_user_api(request, payload: UserSchema):
     """
 
@@ -60,7 +60,7 @@ def create_user_api(request, payload: UserSchema):
     return 200, {"success": user.email}
 
 
-@router.get('', response=List[GetUserSchema], auth=None)
+@router.get('', response=List[GetUserSchema])
 @paginate
 def get_users(request):
     """Lists all users."""
@@ -68,14 +68,14 @@ def get_users(request):
     return all_users
 
 
-@router.get('/{user_id}', response=GetUserSchema, auth=None)
+@router.get('/{user_id}', response=GetUserSchema)
 def get_user(request, user_id: int):
     """List a single user by id."""
     user = get_object_or_404(User, id=user_id)
     return user
 
 
-@router.put('/{user_id}', auth=None)
+@router.put('/{user_id}')
 def update_user(request, user_id: int, payload: UserSchema):
     """Update user attributes."""
     user = get_object_or_404(User, id=user_id)
@@ -88,7 +88,7 @@ def update_user(request, user_id: int, payload: UserSchema):
     return {"success": True}
 
 
-@router.delete('/{user_id}', auth=None)
+@router.delete('/{user_id}')
 def delete_user(request, user_id: int):
     """Delete a user by id."""
     user = get_object_or_404(User, id=user_id)

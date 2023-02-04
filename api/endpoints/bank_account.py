@@ -24,7 +24,7 @@ class GetAccountSchema(Schema):
     account_number: str
 
 
-@router.post('', auth=None)
+@router.post('')
 def create_account(request, payload: AccountSchema):
     """Add a new account."""
 
@@ -50,7 +50,7 @@ def create_account(request, payload: AccountSchema):
     return {"success": account.account_number}
 
 
-@router.get('', response=List[GetAccountSchema], auth=None)
+@router.get('', response=List[GetAccountSchema])
 @paginate
 def get_accounts(request):
     """List all accounts."""
@@ -58,14 +58,14 @@ def get_accounts(request):
     return all_accounts
 
 
-@router.get('/{account_id}', response=GetAccountSchema, auth=None)
+@router.get('/{account_id}', response=GetAccountSchema)
 def get_account(request, account_id: int):
     """List a single account by id."""
     account = get_object_or_404(BankAccount, id=account_id)
     return account
 
 
-@router.put('/{account_id}', auth=None)
+@router.put('/{account_id}')
 def update_account(request, account_id: int, payload: AccountSchema):
     """Update an account."""
     account = get_object_or_404(BankAccount, id=account_id)
@@ -75,7 +75,7 @@ def update_account(request, account_id: int, payload: AccountSchema):
     return {"success": True}
 
 
-@router.delete('/{account_id}', auth=None)
+@router.delete('/{account_id}')
 def delete_account(request, account_id: int):
     """Delete an account."""
     account = get_object_or_404(BankAccount, id=account_id)

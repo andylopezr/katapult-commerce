@@ -31,7 +31,7 @@ class GetVendorSchema(Schema):
     contact_phone: str
 
 
-@router.post('', auth=None)
+@router.post('')
 def create_vendor(request, payload: VendorSchema):
     """"Add a new vendor."""
 
@@ -65,7 +65,7 @@ def create_vendor(request, payload: VendorSchema):
     return {"success": vendor.vendor_name}
 
 
-@router.get('', response=List[GetVendorSchema], auth=None)
+@router.get('', response=List[GetVendorSchema])
 @paginate
 def get_vendors(request):
     """List all vendors."""
@@ -73,7 +73,7 @@ def get_vendors(request):
     return all_vendors
 
 
-@router.get('/{vendor_id}', response=GetVendorSchema, auth=None)
+@router.get('/{vendor_id}', response=GetVendorSchema)
 def get_vendor(request, vendor_id: int):
     """List a single vendor by id."""
     vendor = get_object_or_404(Vendor, id=vendor_id)
@@ -81,7 +81,7 @@ def get_vendor(request, vendor_id: int):
     return vendor
 
 
-@router.put('/{vendor_id}', auth=None)
+@router.put('/{vendor_id}')
 def update_vendor(request, vendor_id: int, payload: VendorSchema):
     """Update a vendor."""
     vendor = get_object_or_404(Vendor, id=vendor_id)
@@ -110,7 +110,7 @@ def update_vendor(request, vendor_id: int, payload: VendorSchema):
     return {"success": True}
 
 
-@router.delete('/{vendor_id}', auth=None)
+@router.delete('/{vendor_id}')
 def delete_vendor(request, vendor_id: int):
     """Delete a vendor."""
     vendor = get_object_or_404(Vendor, id=vendor_id)

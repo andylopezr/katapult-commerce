@@ -20,14 +20,14 @@ class GetBankSchema(Schema):
     bank_name: str
 
 
-@router.post('', auth=None)
+@router.post('')
 def create_bank(request, payload: BankSchema):
     """Add a new Bank"""
     bank = Bank.objects.create(**payload.dict())
     return {"success": bank.bank_name}
 
 
-@router.get('', response=List[GetBankSchema], auth=None)
+@router.get('', response=List[GetBankSchema])
 @paginate
 def get_banks(request):
     """List all Banks."""
@@ -35,14 +35,14 @@ def get_banks(request):
     return all_banks
 
 
-@router.get('/{bank_id}', response=GetBankSchema, auth=None)
+@router.get('/{bank_id}', response=GetBankSchema)
 def get_bank(request, bank_id: int):
     """List a single bank by id."""
     bank = get_object_or_404(Bank, id=bank_id)
     return bank
 
 
-@router.put('/{bank_id}', auth=None)
+@router.put('/{bank_id}')
 def update_bank(request, bank_id: int, payload: BankSchema):
     """Update a bank."""
     bank = get_object_or_404(Bank, id=bank_id)
@@ -52,7 +52,7 @@ def update_bank(request, bank_id: int, payload: BankSchema):
     return {"success": True}
 
 
-@router.delete('/{bank_id}', auth=None)
+@router.delete('/{bank_id}')
 def delete_bank(request, bank_id: int):
     """Delete a bank."""
     bank = get_object_or_404(Bank, id=bank_id)

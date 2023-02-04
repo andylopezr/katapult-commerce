@@ -11,6 +11,47 @@
   <br>
 </h1>
 
+## Roadmap
+
+* [X] All Views protected by login except user creation(test login in api/docs)
+
+* [X] REQ-01 Bank CRUD
+    * [X] Bank name 50 char.
+
+* [X] REQ-02 Vendor and Bank
+    * [X] Vendor Name
+    * [X] Vendor NIT with regex
+    * [X] Contact Name (Optional) - CONFLICT: required fields will prevent for fields to be empty
+    * [X] Contact Phone Number
+    * [X] Bank Name
+    * [X] Bank Number
+    * [X] Check missing fields
+    * [X] Appropiate response for SUCCESS
+    * [ ] Combobox
+
+* [ ] REQ-03 Views for Vendor and Accounts
+    * [X] GET models by id and CRUD
+    * [ ] Actual HTML views
+
+* [ ] REQ-04 Dashboard
+    * [X] Registry counter (works with every model GET /api/<model>/) (not in dashboard yet)
+    * [ ] Logic in views
+    * [ ] Edit and Delete buttons (logic implemented)
+    * [ ] Empty index "No info in table"
+    * [X] Paginate in blocks of 10 (backend)
+    * [X] Same validation in edit as in create
+    * [ ] Parciales (I need to investigate)
+
+* [X] REQ-05 Login System
+    * [X] Auth and Permissions
+    * [X] Successful login message with token response
+    * [X] Check if email exists
+    * [X] Unsuccesful login check
+    * [X] Custom Auth lib and Perms
+
+* [X] Entire Backend API created
+
+
 ## How to use
 
 * Clone the repository and install dependencies
@@ -19,23 +60,22 @@
 * Install dependencies from requirements.txt
 * Create and run migrations
 * Run Server
-*
 
 ```bash
-civictec$git clone https://github.com/andylopezr/civictec.git
-civictec$python3 -m pip install --user virtualenv
-civictec$python3 -m venv <env name>
-civictec$source env/bin/activate
-(env) civictec$pip install -r requirements.txt
-(env) civictec$python3 manage.py makemigrations
-(env) civictec$python3 manage.py migrate
-(env) civictec$python3 manage.py runserver
+katapult-commerce$git clone https://github.com/andylopezr/katapult-commerce.git
+katapult-commerce$python3 -m pip install --user virtualenv
+katapult-commerce$python3 -m venv env
+katapult-commerce$source env/bin/activate
+(env) katapult-commerce$pip install -r requirements.txt
+(env) katapult-commerce$python3 manage.py makemigrations
+(env) katapult-commerce$python3 manage.py migrate
+(env) katapult-commerce$python3 manage.py runserver
 Watching for file changes with StatReloader
 Performing system checks...
 
 System check identified no issues (0 silenced).
-January 20, 2023 - 03:19:58
-Django version 4.1.5, using settings 'citationapp.settings'
+February 04, 2023 - 06:12:47
+Django version 4.1.5, using settings 'vendormanager.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
