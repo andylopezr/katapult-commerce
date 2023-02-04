@@ -3,7 +3,7 @@
 Vendor Management
 <h1 align="center">
   <br>
-  <img src="https://www.criminalandduilawofgeorgia.com/wp-content/uploads/sites/83/primary-images/465-464.jpg" alt="flixfix" width="600">
+  <img src="https://www.criminalandduilawofgeorgia.com/wp-content/uploads/sites/83/primary-images/465-464.jpg" alt="katapult">
   <br>
 </h1>
 
