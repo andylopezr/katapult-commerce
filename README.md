@@ -14,6 +14,7 @@
 ## Roadmap
 
 * [X] All Views protected by login except user creation(test login in api/docs)
+* [ ] All tests for every model
 
 * [X] REQ-01 Bank CRUD
     * [X] Bank name 50 char.
