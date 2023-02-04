@@ -23,6 +23,8 @@ if os.path.isfile(dotenv_file):
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
+NINJA_PAGINATION_PER_PAGE = 10
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -39,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
-    'vendor',
     'bank',
+    'vendor',
 ]
 
 AUTH_USER_MODEL = 'user.User'

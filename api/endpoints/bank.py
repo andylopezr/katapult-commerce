@@ -2,7 +2,6 @@
 Bank and Bank Account schemas and routes.
 """
 from django.shortcuts import get_object_or_404
-from django.http import JsonResponse
 from ninja import Schema, Router
 from ninja.pagination import paginate
 from typing import List
@@ -21,15 +20,11 @@ class GetBankSchema(Schema):
     bank_name: str
 
 
-class Error(Schema):
-    message: str
-
-
 @router.post('', auth=None)
 def create_bank(request, payload: BankSchema):
     """Add a new Bank"""
     bank = Bank.objects.create(**payload.dict())
-    return {"success": True}
+    return {"success": bank.bank_name}
 
 
 @router.get('', response=List[GetBankSchema], auth=None)

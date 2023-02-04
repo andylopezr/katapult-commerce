@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404
 from django.db.utils import IntegrityError
 from ninja import Schema, Router
 from ninja.pagination import paginate
-from ninja.errors import HttpError
 from typing import List
 
 from user.models import User
@@ -24,7 +23,7 @@ class GetUserSchema(Schema):
 
 
 class Success(Schema):
-    success: bool
+    success: str
 
 
 class Error(Schema):
@@ -34,13 +33,21 @@ class Error(Schema):
 @router.post('', auth=None, response={200: Success, 409: Error})
 def create_user_api(request, payload: UserSchema):
     """
+
         Create a new user using email and password.
+
         Password constrains:
+
             - At least 8 characters long.
+
             - Should include one lowercase letter.
+
             - Should include one UPPERCASE letter.
+
             - Should include one of these special characters: ! @ # ? ]
+
     """
+
     try:
         user = User.objects.create_user(
             payload.email,
@@ -50,7 +57,7 @@ def create_user_api(request, payload: UserSchema):
     except IntegrityError:
         return 409, {"message": 'Email already exists!'}
 
-    return 200, {"success": True}
+    return 200, {"success": user.email}
 
 
 @router.get('', response=List[GetUserSchema], auth=None)
@@ -79,7 +86,7 @@ def update_user(request, user_id: int, payload: UserSchema):
             user.set_password(payload.password)
     user.save()
     return {"success": True}
-    
+
 
 @router.delete('/{user_id}', auth=None)
 def delete_user(request, user_id: int):
