@@ -7,7 +7,7 @@
 
 <h1 align="center">
   <br>
-  <img src="https://i.imgur.com/flsLO8x.png" alt="">
+  <img src="https://i.imgur.com/flsLO8x.png" alt="uml" height="600">
   <br>
 </h1>
 
