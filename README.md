@@ -1,8 +1,8 @@
 # Katapult Commerce
+<img src="https://media.licdn.com/dms/image/D4E12AQF9yzpGOro1AA/article-cover_image-shrink_720_1280/0/1662417464111?e=2147483647&v=beta&t=ObCOfTGhLzI4QUFDg1mlZlMtL65kq3lX7OPNrN5saZE" alt="flixfix" width="600">
 Vendor Management
 <h1 align="center">
   <br>
-  <img src="https://media.licdn.com/dms/image/D4E12AQF9yzpGOro1AA/article-cover_image-shrink_720_1280/0/1662417464111?e=2147483647&v=beta&t=ObCOfTGhLzI4QUFDg1mlZlMtL65kq3lX7OPNrN5saZE" alt="flixfix" width="600">
   <img src="https://www.criminalandduilawofgeorgia.com/wp-content/uploads/sites/83/primary-images/465-464.jpg" alt="flixfix" width="600">
   <br>
 </h1>
