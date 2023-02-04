@@ -21,7 +21,9 @@ class AccountSchema(Schema):
 
 class GetAccountSchema(Schema):
     id: int
+    bank_id: str
     account_number: str
+    vendor_id: str
 
 
 @router.post('')
@@ -68,9 +70,22 @@ def get_account(request, account_id: int):
 @router.put('/{account_id}')
 def update_account(request, account_id: int, payload: AccountSchema):
     """Update an account."""
+    if not payload.account_number:
+        raise ValueError(_('Enter account number'))
+
+    if not payload.bank:
+        raise ValueError(_('Enter bank id'))
+
+    if not payload.vendor:
+        raise ValueError(_('Enter vendor id'))
+
+    bank = get_object_or_404(Bank, id=payload.bank)
+    vendor = get_object_or_404(Vendor, id=payload.vendor)
     account = get_object_or_404(BankAccount, id=account_id)
-    for attr, value in payload.dict().items():
-        setattr(account, attr, value)
+
+    account.account_number = payload.account_number
+    account.bank = bank
+    account.vendor = vendor
     account.save()
     return {"success": True}
 

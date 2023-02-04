@@ -86,19 +86,19 @@ def update_vendor(request, vendor_id: int, payload: VendorSchema):
     """Update a vendor."""
     vendor = get_object_or_404(Vendor, id=vendor_id)
 
-    if not vendor.vendor_name:
+    if not payload.vendor_name:
         raise ValueError(_('Enter Vendor Name'))
 
-    if not vendor.vendor_nit:
+    if not payload.vendor_nit:
         raise ValueError(_('Enter Vendor NIT'))
 
-    if not re.fullmatch(nit, vendor.vendor_nit):
+    if not re.fullmatch(nit, payload.vendor_nit):
         raise ValueError(_('NIT is incomplete'))
 
-    if not vendor.contact_name:
+    if not payload.contact_name:
         raise ValueError(_('Enter Vendor Contact Name'))
 
-    if not vendor.contact_phone:
+    if not payload.contact_phone:
         raise ValueError(_('Enter Vendor Contact Number'))
 
     if not re.fullmatch(phone, vendor.contact_phone):
