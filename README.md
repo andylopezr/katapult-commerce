@@ -1,18 +1,13 @@
-# Katapult Commerce
 <img src="https://media.licdn.com/dms/image/D4E12AQF9yzpGOro1AA/article-cover_image-shrink_720_1280/0/1662417464111?e=2147483647&v=beta&t=ObCOfTGhLzI4QUFDg1mlZlMtL65kq3lX7OPNrN5saZE" alt="flixfix">
-Vendor Management
-<h1 align="center">
-  <br>
-  <img src="https://www.criminalandduilawofgeorgia.com/wp-content/uploads/sites/83/primary-images/465-464.jpg" alt="katapult">
-  <br>
-</h1>
+
+# Vendor Management
 
 ## UML
 > Intended UML
 
 <h1 align="center">
   <br>
-  <img src="https://i.imgur.com/MQRbcBj.png" alt="flixfix">
+  <img src="https://i.imgur.com/flsLO8x.png" alt="">
   <br>
 </h1>
 
